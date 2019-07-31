@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c" 
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+
+	<bean id="student3" class="com.javalec.XML_DI.Student">
+	
+		<!-- these values go to specified constructor -->
+		<constructor-arg value="Rey"/>
+		<constructor-arg value="21"/>
+		<constructor-arg>
+			<list>
+				<value>studying</value>
+				<value>smoking</value>
+			</list>
+		</constructor-arg>
+		
+		<!-- these values go to setters -->
+		<property name="height" value="197"/>
+		<property name="weight" value="65"/>
+		
+	</bean>
+	
+		
+	<!-- we can assign values in another way inside the bean tag without having to use <constructor-arg value=""/> or <property name="" value=""/>
+		 which is as follows;
+		 c: = <constructor-arg></constructor-arg> for constructor value
+	     p: = <property></property> for setter value
+	     
+	     To do so, we need to add paths in the beans tag above;
+	     xmlns:c="http://www.springframework.org/schema/c" 
+		 xmlns:p="http://www.springframework.org/schema/p"  
+	     
+	-->	
+	<bean id="family" class="com.javalec.XML_DI.Family" c:fatherName="Tesco" c:motherName="Lidl" p:sisterName="Lidlia">
+		
+		<!-- i will set the value of bro name using setter -->
+		<property name="brotherName" value="Hans"/>		
+	
+	</bean>
+
+</beans>

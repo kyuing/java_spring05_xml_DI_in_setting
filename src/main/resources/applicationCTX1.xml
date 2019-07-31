@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="student1" class="com.javalec.XML_DI.Student">
+		
+		<!-- values assigned to constructor -->
+		<constructor-arg value="Kyu"/>
+		<constructor-arg value="20"/>
+		<constructor-arg>
+			<list>
+				<value>JAVA</value>
+				<value>JS</value>
+			</list>
+		</constructor-arg>
+		
+		<!-- values assigned to setters -->
+		<property name="height" value="177"/>
+		<property name="weight" value="77"/>
+		
+	</bean>
+	
+		
+
+	<bean id="studentInfo1" class="com.javalec.XML_DI.StudentInfo">
+		<property name="student">
+			<ref bean="student1"/>	<!-- student1 above is referenced -->
+		</property>
+	</bean>
+</beans>
